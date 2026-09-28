@@ -1,0 +1,11 @@
+target/
+.mvn/
+application-secrets*.properties
+.env
+*.class
+.idea/
+*.iml/
+.vscode/
+.DS_Store
+*.log
+logs/

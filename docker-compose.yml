@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: p360-cupones-db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-pedidos360}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-pedidos360}
+      POSTGRES_DB: pedidos360_cupones
+    ports:
+      - "5436:5432"
+    volumes:
+      - cupones_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER:-pedidos360}"]
+      interval: 5s
+      retries: 10
+
+volumes:
+  cupones_data:
