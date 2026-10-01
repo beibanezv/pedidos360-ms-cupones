@@ -40,7 +40,7 @@ class CuponConsumerTest {
     }
 
     private OrdenRegistradaEvent eventoConCupon(String codigoCupon) {
-        return new OrdenRegistradaEvent(UUID.randomUUID(), "user-1",
+        return new OrdenRegistradaEvent(UUID.randomUUID(), "user-1", "comprador@mail.com",
                 List.of(new OrdenRegistradaEvent.Item(UUID.randomUUID(), 1)), codigoCupon);
     }
 
