@@ -1,7 +1,13 @@
 target/
 .mvn/
+mvnw
+mvnw.cmd
+
+# Spring Boot / secrets
 application-secrets*.properties
+application-prod-secrets*.properties
 .env
+*.env
 *.class
 .idea/
 *.iml/
