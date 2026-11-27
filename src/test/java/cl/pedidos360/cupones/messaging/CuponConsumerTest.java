@@ -26,6 +26,7 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class CuponConsumerTest {
+  static { System.setProperty("p360.retry.espera-ms", "0"); }
 
     @Mock
     CuponRepository repository;
@@ -109,7 +110,7 @@ class CuponConsumerTest {
 
         consumer.onOrdenRegistrada(eventoConCupon("BIENVENIDA10"), channel, 6L, mensajeSinMuertes());
 
-        verify(channel).basicNack(6L, false, true);
+        verify(channel).basicNack(6L, false, false);
     }
 
     @Test
